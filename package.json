@@ -1,7 +1,10 @@
 {
   "name": "@pyxo/vint",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "description": "Vint (Vue apps Internationalization), a library to make your Vue app i18n easier.",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "lib/index.js",
   "typings": "dist/vint.d.ts",
   "repository": "https://github.com/pyxo-dev/vint",
@@ -13,13 +16,16 @@
     "test": "jest src/",
     "test:cov": "jest --coverage src/",
     "tsc": "rm -rf ./lib/ && tsc -p tsconfig.prod.json",
-    "ae": "api-extractor run",
+    "ae": "api-extractor run --local --verbose",
     "ad": "rm -rf ./docs/src/api/ && api-documenter markdown -i temp/ -o docs/src/api",
     "docs:dev": "vuepress dev docs/src",
     "docs:build": "rm -rf docs/dist/ && vuepress build docs/src",
-    "build": "yarn test && yarn tsc && yarn ae && yarn ad && yarn docs:build && yarn test:cov"
+    "build": "yarn test && yarn tsc && yarn ae && yarn ad && yarn docs:build && cp README.md docs/src/index.md && yarn test:cov"
   },
-  "files": ["/lib", "/dist"],
+  "files": [
+    "/lib",
+    "/dist"
+  ],
   "devDependencies": {
     "@microsoft/api-documenter": "^7.12.22",
     "@microsoft/api-extractor": "^7.13.5",
@@ -33,5 +39,10 @@
     "ts-jest": "^26.5.4",
     "typescript": "^4.2.4",
     "vuepress": "^2.0.0-beta.8"
-  }
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0",
+    "vue-i18n": "^9.0.0"
+  },
+  "dependencies": {}
 }

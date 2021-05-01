@@ -1,0 +1,29 @@
+#+OPTIONS: toc:nil
+
+* Introduction
+Vint (*V*​ue *int*​ernationalization) is a library to facilitate the i18n of Vue
+apps.
+
+Vint makes use of [[https://github.com/intlify/vue-i18n-next][Vue-i18n]].
+
+Vint can be used along with [[https://github.com/pyxo-dev/wint][Wint]].
+
+* Installation
+#+begin_src sh
+npm install @pyxo/vint
+# or
+yarn add @pyxo/vint
+#+end_src
+
+* Documentation
+API docs: [[https://vint.pyxo.net/api][vint.pyxo.net/api]]
+
+* Source code
+Repository: [[https://github.com/pyxo-dev/vint][github.com/pyxo-dev/vint]]
+
+Contributions are welcome!
+
+* Ecosystem
+[[https://github.com/pyxo-dev/wint][Wint]] Web apps int.
+[[https://github.com/pyxo-dev/vint][Vint]] Vue int.
+[[https://github.com/pyxo-dev/qint][Qint]] Quasar int.
