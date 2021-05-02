@@ -25,6 +25,6 @@ Contributions are welcome!
 
 # Ecosystem
 
-[Wint](https://github.com/pyxo-dev/wint) Web apps int.
-[Vint](https://github.com/pyxo-dev/vint) Vue int.
-[Qint](https://github.com/pyxo-dev/qint) Quasar int.
+- [Wint](https://github.com/pyxo-dev/wint) Web apps int.
+- [Vint](https://github.com/pyxo-dev/vint) Vue int.
+- [Qint](https://github.com/pyxo-dev/qint) Quasar int.
