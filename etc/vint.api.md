@@ -9,6 +9,7 @@ import type { I18n } from 'vue-i18n';
 import type { LocaleMessageDictionary } from 'vue-i18n';
 import type { VueI18nOptions } from 'vue-i18n';
 import type { VueMessageType } from 'vue-i18n';
+import type { WintConf } from '@pyxo/wint';
 
 // @beta
 export function loadVueI18nMsg(options: LoadVueI18nMsgOptions): Promise<LocaleMessageDictionary<VueMessageType> | undefined>;
@@ -29,6 +30,11 @@ export interface LocalizeUrlPathOptions {
     langTag?: string;
     msgKey?: string;
     urlPath: string;
+}
+
+// @beta
+export interface VintConf extends WintConf {
+    vueI18nConf: VintVueI18nConf;
 }
 
 // @beta

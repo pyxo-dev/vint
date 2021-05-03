@@ -2,6 +2,7 @@
  * Misc types used by Vint.
  */
 
+import type { WintConf } from '@pyxo/wint'
 import type {
   ComposerOptions,
   I18n,
@@ -52,4 +53,14 @@ export interface VintVueI18nConf {
    * Function to use for importing general messages.
    */
   importGeneralMsg: VintImportVueI18nMsgFn
+}
+
+/**
+ * Vint configuration.
+ *
+ * @beta
+ */
+export interface VintConf extends WintConf {
+  /** {@inheritDoc VintVueI18nConf} */
+  vueI18nConf: VintVueI18nConf
 }
