@@ -25,8 +25,7 @@ Repository: [github.com/pyxo-dev/vint](https://github.com/pyxo-dev/vint)
 
 Contributions are welcome!
 
-# Ecosystem
+# See also
 
 -   [Wint](https://github.com/pyxo-dev/wint) Web apps int.
--   [Vint](https://github.com/pyxo-dev/vint) Vue int.
 -   [Qint](https://github.com/pyxo-dev/qint) Quasar int.
