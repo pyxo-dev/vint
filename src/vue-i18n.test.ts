@@ -4,7 +4,7 @@ import type { VintImportVueI18nMsgFn } from '.'
 import { loadVueI18nMsg } from '.'
 
 const langTag = 'es'
-const i18n = createI18n({ legacy: false })
+const i18n = createI18n({ legacy: false }).global
 
 const importMsgFn: VintImportVueI18nMsgFn = async (langTag) =>
   (<{ default: LocaleMessageDictionary<VueMessageType> }>(
@@ -30,5 +30,5 @@ test(`
 `, async () => {
   const msg = await loadVueI18nMsg({ langTag, i18n, importMsgFn })
   expect(msg).toStrictEqual({ test: 'test' })
-  expect(i18n.global.getLocaleMessage('es')).toStrictEqual({ test: 'test' })
+  expect(i18n.getLocaleMessage('es')).toStrictEqual({ test: 'test' })
 })

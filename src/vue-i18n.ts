@@ -13,7 +13,7 @@ import type { VintI18n, VintImportVueI18nMsgFn } from '.'
 export interface LoadVueI18nMsgOptions {
   /** The language tag to load the message for. */
   langTag: string
-  /** vue-i18n instance to load the message in. */
+  /** vue-i18n composer or legacy instance to load the message in. */
   i18n: VintI18n
   /** The function to use for importing the locale message. */
   importMsgFn: VintImportVueI18nMsgFn
@@ -21,7 +21,7 @@ export interface LoadVueI18nMsgOptions {
 
 /**
  * Imports a vue-i18n locale message for a specified language tag and merges it
- * to the messages of a provided vue-i18n instance.
+ * in the messages of a provided vue-i18n composer or legacy instance.
  *
  * @beta
  *
@@ -47,7 +47,7 @@ export async function loadVueI18nMsg(
     const msg = await importMsgFn(langTag)
 
     // Merge the locale message.
-    i18n.global.mergeLocaleMessage(langTag, msg)
+    i18n.mergeLocaleMessage(langTag, msg)
 
     // If all goes well, return the locale message.
     return msg

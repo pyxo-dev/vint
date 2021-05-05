@@ -12,11 +12,11 @@ import type {
 } from 'vue-i18n'
 
 /**
- * vue-i18n instance.
+ * vue-i18n composer or legacy instance.
  *
  * @beta
  */
-export type VintI18n = I18n<unknown, unknown, unknown, boolean>
+export type VintI18n = I18n<unknown, unknown, unknown, boolean>['global']
 
 /**
  * A function to use for importing a vue-i18n locale message.

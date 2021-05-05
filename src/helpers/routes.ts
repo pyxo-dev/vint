@@ -2,6 +2,7 @@
  * Route helpers.
  */
 
+import type { I18nMode } from 'vue-i18n'
 import type { VintI18n } from '..'
 
 /**
@@ -19,8 +20,10 @@ export interface LocalizeUrlPathOptions {
    * ```
    */
   urlPath: string
-  /** vue-i18n instance to use for the localization. */
+  /** vue-i18n composer or legacy instance to use for the localization. */
   i18n: VintI18n
+  /** vue-i18n API mode. */
+  i18nMode?: I18nMode
   /** The target language tag. */
   langTag?: string
   /**
@@ -53,9 +56,9 @@ export interface LocalizeUrlPathOptions {
  * @returns The localized URL path.
  */
 export function localizeUrlPath(options: LocalizeUrlPathOptions): string {
-  const { urlPath, i18n, langTag, msgKey } = options
+  const { urlPath, i18n, i18nMode, langTag, msgKey } = options
 
-  const l = i18n.global.locale
+  const l = i18n.locale
   // If no language tag is provided, use the current Vue i18n instance locale.
   const locale = langTag || (typeof l === 'string' ? l : l.value)
 
@@ -73,8 +76,8 @@ export function localizeUrlPath(options: LocalizeUrlPathOptions): string {
         const subject = msgKey ? `${msgKey}.${segment}` : segment
 
         // Legacy mode.
-        if (i18n.mode === 'legacy') {
-          const lcPath = i18n.global.t(subject, locale)
+        if (i18nMode === 'legacy') {
+          const lcPath = i18n.t(subject, locale)
 
           // When no corresponding translation exists, the result will include
           // the `msgKey`. We need to remove it.
@@ -84,7 +87,7 @@ export function localizeUrlPath(options: LocalizeUrlPathOptions): string {
         }
 
         // Composititon mode.
-        return i18n.global.t(subject, segment, { locale })
+        return i18n.t(subject, segment, { locale })
       })
       .join('/')
   )

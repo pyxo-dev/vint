@@ -20,7 +20,7 @@ const messages = {
 }
 
 describe('Vue i18n composition mode', () => {
-  const i18n = createI18n({ legacy: false, messages })
+  const { global: i18n } = createI18n({ legacy: false, messages })
 
   test(`
 [localizeUrlPath] Empty langTag.
@@ -55,7 +55,7 @@ describe('Vue i18n composition mode', () => {
         add: 'ajouter',
       },
     }
-    const i18n = createI18n({ legacy: false, messages })
+    const { global: i18n } = createI18n({ legacy: false, messages })
 
     test(`
 [localizeUrlPath] Should localize to the target langTag.
@@ -68,28 +68,31 @@ describe('Vue i18n composition mode', () => {
 })
 
 describe('Vue i18n legacy mode', () => {
-  const i18n = createI18n({ legacy: true, messages })
+  const { global: i18n, mode: i18nMode } = createI18n({
+    legacy: true,
+    messages,
+  })
 
   test(`
 [localizeUrlPath] Empty langTag.
 `, () => {
-    expect(localizeUrlPath({ urlPath, langTag: '', i18n, msgKey })).toBe(
-      '/task/add'
-    )
+    expect(
+      localizeUrlPath({ urlPath, langTag: '', i18n, i18nMode, msgKey })
+    ).toBe('/task/add')
   })
 
   test(`
 [localizeUrlPath] No corresponding translation.
 `, () => {
-    expect(localizeUrlPath({ urlPath: '/update', langTag, i18n, msgKey })).toBe(
-      '/update'
-    )
+    expect(
+      localizeUrlPath({ urlPath: '/update', langTag, i18n, i18nMode, msgKey })
+    ).toBe('/update')
   })
 
   test(`
 [localizeUrlPath] Should localize to the target langTag.
 `, () => {
-    expect(localizeUrlPath({ urlPath, langTag, i18n, msgKey })).toBe(
+    expect(localizeUrlPath({ urlPath, langTag, i18n, i18nMode, msgKey })).toBe(
       '/t%C3%A2che/ajouter'
     )
   })

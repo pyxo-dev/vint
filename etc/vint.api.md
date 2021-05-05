@@ -6,6 +6,7 @@
 
 import type { ComposerOptions } from 'vue-i18n';
 import type { I18n } from 'vue-i18n';
+import type { I18nMode } from 'vue-i18n';
 import type { LocaleMessageDictionary } from 'vue-i18n';
 import type { VueI18nOptions } from 'vue-i18n';
 import type { VueMessageType } from 'vue-i18n';
@@ -27,6 +28,7 @@ export function localizeUrlPath(options: LocalizeUrlPathOptions): string;
 // @beta
 export interface LocalizeUrlPathOptions {
     i18n: VintI18n;
+    i18nMode?: I18nMode;
     langTag?: string;
     msgKey?: string;
     urlPath: string;
@@ -38,7 +40,7 @@ export interface VintConf extends WintConf {
 }
 
 // @beta
-export type VintI18n = I18n<unknown, unknown, unknown, boolean>;
+export type VintI18n = I18n<unknown, unknown, unknown, boolean>['global'];
 
 // @beta
 export type VintImportVueI18nMsgFn = (langTag: string) => Promise<LocaleMessageDictionary<VueMessageType>>;
