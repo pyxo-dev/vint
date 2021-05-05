@@ -18,7 +18,7 @@ export function loadVueI18nMsg(options: LoadVueI18nMsgOptions): Promise<LocaleMe
 // @beta
 export interface LoadVueI18nMsgOptions {
     i18n: VintI18n;
-    importMsgFn: VintImportVueI18nMsgFn;
+    importMsg: VintImportVueI18nMsgFn;
     langTag: string;
 }
 

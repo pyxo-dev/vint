@@ -6,7 +6,7 @@ import { loadVueI18nMsg } from '.'
 const langTag = 'es'
 const i18n = createI18n({ legacy: false }).global
 
-const importMsgFn: VintImportVueI18nMsgFn = async (langTag) =>
+const importMsg: VintImportVueI18nMsgFn = async (langTag) =>
   (<{ default: LocaleMessageDictionary<VueMessageType> }>(
     await import(`./vue-i18n-test-msgs/${langTag}`)
   )).default
@@ -14,21 +14,21 @@ const importMsgFn: VintImportVueI18nMsgFn = async (langTag) =>
 test(`
 [loadVueI18nMsg] Invalid input, empty langTag.
 `, async () => {
-  const msg = await loadVueI18nMsg({ langTag: '', i18n, importMsgFn })
+  const msg = await loadVueI18nMsg({ langTag: '', i18n, importMsg })
   expect(msg).toBeUndefined()
 })
 
 test(`
 [loadVueI18nMsg] Invalid input, langTag without msg file.
 `, async () => {
-  const msg = await loadVueI18nMsg({ langTag: 'invalid', i18n, importMsgFn })
+  const msg = await loadVueI18nMsg({ langTag: 'invalid', i18n, importMsg })
   expect(msg).toBeUndefined()
 })
 
 test(`
 [loadVueI18nMsg] Valid input.
 `, async () => {
-  const msg = await loadVueI18nMsg({ langTag, i18n, importMsgFn })
+  const msg = await loadVueI18nMsg({ langTag, i18n, importMsg })
   expect(msg).toStrictEqual({ test: 'test' })
   expect(i18n.getLocaleMessage('es')).toStrictEqual({ test: 'test' })
 })

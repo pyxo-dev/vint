@@ -16,7 +16,7 @@ export interface LoadVueI18nMsgOptions {
   /** vue-i18n composer or legacy instance to load the message in. */
   i18n: VintI18n
   /** The function to use for importing the locale message. */
-  importMsgFn: VintImportVueI18nMsgFn
+  importMsg: VintImportVueI18nMsgFn
 }
 
 /**
@@ -32,7 +32,7 @@ export interface LoadVueI18nMsgOptions {
 export async function loadVueI18nMsg(
   options: LoadVueI18nMsgOptions
 ): Promise<LocaleMessageDictionary<VueMessageType> | undefined> {
-  const { langTag, i18n, importMsgFn } = options
+  const { langTag, i18n, importMsg } = options
 
   // Validate the language tag.
   if (langTag === '') {
@@ -44,7 +44,7 @@ export async function loadVueI18nMsg(
 
   try {
     // Import the locale message.
-    const msg = await importMsgFn(langTag)
+    const msg = await importMsg(langTag)
 
     // Merge the locale message.
     i18n.mergeLocaleMessage(langTag, msg)
@@ -55,7 +55,7 @@ export async function loadVueI18nMsg(
     console.error(
       `
 [Vint loadVueI18nMsg] Error loading Vue I18n message for the "${langTag}"
-language tag, using function "${importMsgFn.name}":
+language tag, using function "${importMsg.name}":
 `,
       err
     )
