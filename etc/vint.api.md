@@ -35,6 +35,15 @@ export interface LocalizeUrlPathOptions {
 }
 
 // @beta
+export function setupLocalI18n(options: SetupLocalI18nOptions): I18n<unknown, unknown, unknown, false>['global'];
+
+// @beta
+export interface SetupLocalI18nOptions {
+    composerOptions?: ComposerOptions;
+    importMsg: VintImportVueI18nMsgFn;
+}
+
+// @beta
 export interface VintConf extends WintConf {
     vueI18nConf: VintVueI18nConf;
 }
