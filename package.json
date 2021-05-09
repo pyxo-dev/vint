@@ -1,6 +1,6 @@
 {
   "name": "@pyxo/vint",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Vint (Vue apps Internationalization), a library to make your Vue app i18n easier.",
   "publishConfig": {
     "access": "public"

@@ -10,7 +10,11 @@ import type { I18nMode } from 'vue-i18n';
 import type { LocaleMessageDictionary } from 'vue-i18n';
 import type { VueI18nOptions } from 'vue-i18n';
 import type { VueMessageType } from 'vue-i18n';
+import type { Wint } from '@pyxo/wint';
 import type { WintConf } from '@pyxo/wint';
+
+// @beta
+export function createVint(conf: VintConf): Vint;
 
 // @beta
 export function loadVueI18nMsg(options: LoadVueI18nMsgOptions): Promise<LocaleMessageDictionary<VueMessageType> | undefined>;
@@ -41,6 +45,16 @@ export function setupLocalI18n(options: SetupLocalI18nOptions): I18n<unknown, un
 export interface SetupLocalI18nOptions {
     composerOptions?: ComposerOptions;
     importMsg: VintImportVueI18nMsgFn;
+}
+
+// @beta
+export interface Vint extends Wint {
+    conf: VintConf;
+    i18n: VintI18n;
+    i18nPlugin: I18n<unknown, unknown, unknown, boolean>;
+    loadVueI18nMsg: (options: Partial<LoadVueI18nMsgOptions> & Pick<LoadVueI18nMsgOptions, 'langTag'>) => ReturnType<typeof loadVueI18nMsg>;
+    localizeUrlPath: (options: Partial<LocalizeUrlPathOptions> & Pick<LocalizeUrlPathOptions, 'urlPath'>) => ReturnType<typeof localizeUrlPath>;
+    setupLocalI18n: typeof setupLocalI18n;
 }
 
 // @beta
