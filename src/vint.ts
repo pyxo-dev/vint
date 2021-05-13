@@ -1,4 +1,4 @@
-import type { Wint } from '@pyxo/wint'
+import type { Wint, WintServerContext } from '@pyxo/wint'
 import { createWint } from '@pyxo/wint'
 import type { I18n } from 'vue-i18n'
 import { createI18n } from 'vue-i18n'
@@ -55,7 +55,10 @@ export interface Vint extends Wint {
  * @param conf - Configuration object.
  * @returns Vint instance.
  */
-export function createVint(conf: VintConf): Vint {
+export function createVint(
+  conf: VintConf,
+  serverContext?: WintServerContext
+): Vint {
   // Destructure the configuration.
   const {
     vueI18nConf: { legacy, vueI18nOptions, composerOptions, importGeneralMsg },
@@ -69,7 +72,7 @@ export function createVint(conf: VintConf): Vint {
   const i18n = i18nPlugin.global
 
   // Create a Wint instance.
-  const wint = createWint(conf)
+  const wint = createWint(conf, serverContext)
 
   // The following will make the standalone functions available in the Vint
   // instance. These functions can then be used in a much easier way, as there

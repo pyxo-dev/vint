@@ -12,9 +12,10 @@ import type { VueI18nOptions } from 'vue-i18n';
 import type { VueMessageType } from 'vue-i18n';
 import type { Wint } from '@pyxo/wint';
 import type { WintConf } from '@pyxo/wint';
+import type { WintServerContext } from '@pyxo/wint';
 
 // @beta
-export function createVint(conf: VintConf): Vint;
+export function createVint(conf: VintConf, serverContext?: WintServerContext): Vint;
 
 // @beta
 export function loadVueI18nMsg(options: LoadVueI18nMsgOptions): Promise<LocaleMessageDictionary<VueMessageType> | undefined>;
