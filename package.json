@@ -1,6 +1,6 @@
 {
   "name": "@pyxo/vint",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "Vint (Vue apps Internationalization), a library to make your Vue app i18n easier.",
   "publishConfig": {
     "access": "public"
@@ -47,6 +47,6 @@
     "vue-i18n": "^9.0.0"
   },
   "dependencies": {
-    "@pyxo/wint": "^1.0.0-beta.5"
+    "@pyxo/wint": "^1.0.0-beta.8"
   }
 }

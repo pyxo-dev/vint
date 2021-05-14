@@ -636,10 +636,10 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
-"@pyxo/wint@^1.0.0-beta.5":
-  version "1.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@pyxo/wint/-/wint-1.0.0-beta.7.tgz#7fb5f93bd0e3163cb0260f503f13d918cfbb3df9"
-  integrity sha512-ytEEx4SBbNiqBw47eIoE46Ta0hVAWRap9xUlqvx4YgL+KNh90eIvwIhyhjpBqkqZr9jl4NhMZFLnnlE2H5W6rw==
+"@pyxo/wint@^1.0.0-beta.8":
+  version "1.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@pyxo/wint/-/wint-1.0.0-beta.8.tgz#f54bcb1c78f3d9eba1de71ee0c621839081451cf"
+  integrity sha512-RiifIhzCt/3TXD6GlGRpC4QWmQRpHUW9nGwrS2yMsnB9+JG3Y/uXoD0I9vqZ74N7SWgTZxh3ihKCr9A502qhTg==
   dependencies:
     "@types/cookie" "^0.4.0"
     "@types/negotiator" "^0.6.1"
