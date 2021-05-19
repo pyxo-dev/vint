@@ -1,9 +1,7 @@
 * Introduction
 Vint (Vue internationalization) is a library to facilitate the i18n of Vue apps.
 
-Vint makes use of [[https://github.com/intlify/vue-i18n-next][Vue-i18n]].
-
-Vint can be used along with [[https://github.com/pyxo-dev/wint][Wint]].
+Vint extends [[https://github.com/pyxo-dev/wint][Wint]] and makes use of [[https://github.com/intlify/vue-i18n-next][Vue-i18n]].
 
 * Installation
 #+begin_src sh
