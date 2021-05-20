@@ -5,9 +5,11 @@ Vint extends [[https://github.com/pyxo-dev/wint][Wint]] and makes use of [[https
 
 * Installation
 #+begin_src sh
-npm install @pyxo/vint
-# or
+yarn add vue-i18n@next
 yarn add @pyxo/vint
+# or
+npm install vue-i18n@next
+npm install @pyxo/vint
 #+end_src
 
 * Documentation

@@ -7,9 +7,11 @@ Vint extends [Wint](https://github.com/pyxo-dev/wint) and makes use of [Vue-i18n
 # Installation
 
 ``` bash
-npm install @pyxo/vint
-# or
+yarn add vue-i18n@next
 yarn add @pyxo/vint
+# or
+npm install vue-i18n@next
+npm install @pyxo/vint
 ```
 
 # Documentation
